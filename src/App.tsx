@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components"
+
+// Custom components
+import InfiniteScroll from "./components/InfiniteScroll/InfiniteScroll"
+import ItemsImageList from "./components/ItemsImageList/ItemsImageList"
+
+// Styles
+const AppWrapper = styled.div`
+  h2 {
+    text-align: center;
+    padding: 40px 0;
+  }
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <AppWrapper>
+      <h2>Infinite Scroll</h2>
+      <InfiniteScroll>
+        {(data) => <ItemsImageList data={data} />}
+      </InfiniteScroll>
+    </AppWrapper>
+  )
 }
 
-export default App;
+export default App
